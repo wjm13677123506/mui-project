@@ -1,0 +1,497 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>巨华软件</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- IOS中Safari允许全屏浏览 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!-- IOS中safari顶端的状态条的样式 -->
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<!-- 忽略将页面中的数字识别为电话号码 -->
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/mui.dtpicker.css" rel="stylesheet" />
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/dindan.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/public.css" />
+		<!--//<script src="js/mui.picker.js"></script>-->
+		<link href="css/login.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+
+		<style>
+			.mui-content>.mui-table-view:first-child {
+				margin-top: -1px;
+			}
+
+			.chart {
+				height: 200px;
+				margin: 0px;
+				padding: 0px;
+			}
+
+			h5 {
+				margin-top: 30px;
+				font-weight: bold;
+			}
+
+			h5:first-child {
+				margin-top: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<!--<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">				
+				<ul class="mui-table-view mui-table-view-chevron"></ul>
+			</div>
+		</div>-->
+		<!-- <header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a href="#picture" class="mui-btn mui-btn-link mui-pull-right" style="color:#999">关闭</a>
+			<h1 class="mui-title">猴哥印刷-老板APP</h1>
+		</header> -->
+
+		<nav class="mui-bar mui-bar-tab">
+			<!-- <a class="mui-tab-item  mui-active" id="twork" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" id="tshenen" href="#tabbar-with-shenhe">
+				<span class="mui-icon mui-icon-map"><span id="shenhe_id" class="mui-badge">8</span></span>
+				<span class="mui-tab-label">待审单据</span>
+			</a> -->
+			<a class="mui-tab-item" id="myDindan" href="#tabbar-with-myDindan">
+				<span class="mui-icon mui-icon-chat"><span class="mui-badge">3</span></span>
+				<span class="mui-tab-label">我的订单</span>
+			</a>
+			<a class="mui-tab-item" id="user-info" href="#tabbar-with-user">
+				<span class="mui-icon mui-icon-pengyouquan"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+
+		<div class="mui-content">
+			<!--//我的订单-->
+			<div id="tabbar-with-myDindan" class="mui-control-content mui-active">
+				<header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
+					<!-- <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a> -->
+					<h1 class="mui-title">我的订单</h1>
+				</header>
+
+				<!-- 切换栏 -->
+				<div class="dindan-tab">
+					<ul>
+						<li class="li-aa default-bg">全部订单</li>
+						<li class="li-aa">待付款</li>
+						<li class="li-aa">待审核</li>
+						<li class="li-aa">生产中</li>
+						<li class="li-aa">已完成</li>
+						<li class="li-aa">已取消</li>
+					</ul>
+				</div>
+
+				<!-- 订单1 -->
+				<div class="mui-card">
+					<!--页眉-->
+					<div class="mui-card-header">
+						<div>
+							订单号:1656498465165498498
+						</div>
+						<div>
+							审核中
+						</div>
+					</div>
+					<!--页中-->
+					<div class="mui-card-content">
+						<a href="order-detail.html">
+							<div class="content-row1">
+								<!-- <div class="col1">
+									<img src="images/main_3.png" />
+								</div> -->
+								<div class="col2">
+									<p>款型:无碳联单</p>
+									<p>17.5*9.5cm-二联-50本</p>
+									<p>支付信息:已付定金</p>
+								</div>
+								<div class="col3"><span>$150.00</span></div>
+							</div>
+						</a>
+					</div>
+					<!--页脚-->
+					<div class="mui-card-footer">
+						<span>
+							下单时间: 2021-4-12 15:32:03
+						</span>
+					</div>
+				</div>
+
+				<!-- 订单2 -->
+				<div class="mui-card">
+					<!--页眉-->
+					<div class="mui-card-header">
+						<div>
+							订单号:1656498465165498498
+						</div>
+						<div>
+							审核中
+						</div>
+					</div>
+					<!--页中-->
+					<div class="mui-card-content">
+						<div class="content-row1">
+							<!-- <div class="col1">
+								<img src="images/main_7.png" />
+							</div> -->
+							<div class="col2">
+								<p>款型:无碳联单</p>
+								<p>17.5*9.5cm-二联-50本</p>
+								<p>支付信息:已付定金</p>
+							</div>
+							<div class="col3"><span>$150.00</span></div>
+						</div>
+					</div>
+					<!--页脚-->
+					<div class="mui-card-footer">
+						<span>
+							下单时间: 2021-4-12 15:32:03
+						</span>
+					</div>
+				</div>
+
+			</div>
+
+			<!-- 我的 -->
+			<div id="tabbar-with-user" class="mui-control-content">
+
+				<!-- 头部 -->
+				<header class="mui-bar mui-bar-nav home-nav">
+					<h1 class="mui-title">我的</h1>
+				</header>
+
+				<!-- 内容 -->
+				<div class="mui-content">
+					<div class="home-div">
+						<!-- 我的-top -->
+						<a href="login.html">
+							<div class="home-div-top">
+								<div class="home-div-top-l">
+									<img src="images/logo72.png" id="head_img" alt="" />
+								</div>
+
+								<!--登录前样式-->
+								<div class="home-div-top-r" id="login_event">
+									<h4>登录/注册</h4>
+									<p>登录后可享受更多特权</p>
+									<span class="mui-icon mui-icon-arrowright right-icon"></span>
+								</div>
+								<!-- 登录后样式 -->
+								<div class="home-div-top-r" id="login_succ" style="display: none;">
+									<h4>阿萨分</h4>
+									<p><span class="mui-icon mui-icon-phone"></span>170****3398</p>
+									<span class="mui-icon mui-icon-arrowright right-icon"></span>
+								</div>
+							</div>
+						</a>
+
+
+						<!--home余额-->
+						<div class="home-mony">
+							<a href="money.html">
+								<div class="home-mony-l public_click">
+									<span class="mui-icon iconfont icon-renminbi icon-div"
+										style="background: #FD6A3C;"></span>
+									<h5>我的余额</h5>
+								</div>
+							</a>
+							<a href="integral.html">
+								<div class="home-mony-r public_click" style="border-right:0px;">
+									<span class="mui-icon iconfont icon-hricon38 icon-div"
+										style="background:#07C167"></span>
+									<h5>我的积分</h5>
+								</div>
+							</a>
+						</div>
+
+						<!-- home列表 -->
+						<div class="home-list">
+							<div class="home-list-div public-list-txt">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right" href="address.html">
+											<span style="color: #007AFF;"
+												class="mui-icon iconfont icon-dizhi list-l-icon home-1"></span><span>收货地址</span>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											<span
+												class="mui-icon iconfont icon-shoucang01 list-l-icon home-2"></span><span>我的通知</span>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											<span
+												class="mui-icon iconfont icon-shangcheng list-l-icon home-4"></span><span>积分商城</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="home-list-div public-list-txt">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											<span
+												class="mui-icon iconfont icon-fuwuzhongxin list-l-icon home-5"></span><span>服务中心</span>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											<span
+												class="mui-icon iconfont icon-shangjiab list-l-icon home-6"></span><span>我是商家</span>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right" href="setting.html">
+											<span
+												class="mui-icon iconfont icon-xiangce list-l-icon home-3"></span><span>设置</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 我的结束 -->
+
+		</div>
+
+
+		<!--//退出-->
+		<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<!-- <a href="javascript:exit('logout')">重新登陆</a> -->
+					<a href="login.html">重新登陆</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="javascript:exit('quit')">退出APP</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/echarts-all.js"></script>
+		<script src="js/mui.dtpicker.js"></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<!--<script src="js/echarts-all.js"></script>	-->
+		<script>
+			var tarbarselect = 1;
+			var tarbarsvalue = 0;
+
+			mui.init({
+				//				pullRefresh: {						
+				//					container: '#pullrefresh',
+				//					down: {
+				//						style:'circle',
+				//						callback: pulldownRefresh
+				//					},					
+				//				}
+			});
+
+			$('.li-aa').click(function() {
+				// alert('123');
+				$(this).addClass('select-bg');
+				$(this).siblings().removeClass("select-bg");
+				$(this).siblings().removeClass("default-bg");
+			})
+
+			window.onload = function() {
+
+
+			}
+
+			//		function pulldownRefresh() {					
+			//					setTimeout(function() {					
+			//						mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+			////						document.getElementById('shenhe_id').innerText="10";
+			//					}, 1000);			
+			//		}
+			//		setInterval(function() {getdatainfo()},3000);
+			//		function getdatainfo(){
+			//			tarbarsvalue = tarbarsvalue +1;
+			//			document.getElementById('shenhe_id').innerText = tarbarsvalue;
+			//		}
+
+			var chartdata = [{
+					value: 15,
+					name: '未排'
+				},
+				{
+					value: 30,
+					name: '已排单'
+				},
+				{
+					value: 45,
+					name: '已生产'
+				},
+				{
+					value: 50,
+					name: '已出货'
+				},
+				{
+					value: 80,
+					name: '已回单'
+				}
+			];
+			var option = {
+				legend: {
+					orient: 'horizontal',
+					left: 'left',
+					bottom: 0, //底部
+					data: ['未排', '已排单', '已生产', '已出货', '已回单']
+				},
+				series: [{
+					name: '访问来源',
+					type: 'pie',
+					radius: '45%',
+					center: ['50%', '60%'],
+					data: chartdata,
+					itemStyle: {
+						normal: {
+							label: {
+								show: true,
+								formatter: '{c} ({d}%)'
+							},
+							labelLine: {
+								show: true
+							}
+						}
+					}
+				}]
+			};
+
+			var chartdata1 = [{
+					value: 215,
+					name: '未排'
+				},
+				{
+					value: 300,
+					name: '已排单'
+				},
+				{
+					value: 145,
+					name: '已生产'
+				},
+				{
+					value: 510,
+					name: '已出货'
+				},
+				{
+					value: 180,
+					name: '已回单'
+				}
+			];
+			var option1 = {
+				legend: {
+					orient: 'horizontal',
+					left: 'left',
+					bottom: 0, //底部
+					data: ['未排', '已排单', '已生产', '已出货', '已回单']
+				},
+				series: [{
+					name: '访问来源',
+					type: 'pie',
+					radius: '45%',
+					center: ['50%', '60%'],
+					data: chartdata1,
+					itemStyle: {
+						normal: {
+							label: {
+								show: true,
+								formatter: '{c} ({d}%)'
+							},
+							labelLine: {
+								show: true
+							}
+						}
+					}
+				}]
+			};
+			document.getElementById('tcharts').addEventListener('tap', function() {
+				tarbarselect = 4;
+				document.getElementById('tabbar-with-charts').style.display = 'block';
+				var myChart = echarts.init(document.getElementById('pieChart'));
+				myChart.setOption(option);
+				var myChart1 = echarts.init(document.getElementById('monthChart'));
+				myChart1.setOption(option1);
+				//			alert('显示图表');
+
+			});
+
+			document.getElementById('twork').addEventListener('tap', function() {
+				tarbarselect = 1
+				document.getElementById('tabbar-with-charts').style.display = 'none';
+
+			});
+			document.getElementById('tshenen').addEventListener('tap', function() {
+				document.getElementById('tabbar-with-charts').style.display = 'none';
+				tarbarselect = 2
+			});
+			document.getElementById('tinfo').addEventListener('tap', function() {
+				document.getElementById('tabbar-with-charts').style.display = 'none';
+				tarbarselect = 3
+			});
+
+
+			function scan(scanmode) {
+
+				scanmode = scanmode || '';
+				localStorage.setItem('$scanmode', JSON.stringify(scanmode));
+				if (scanmode == 'saout' || scanmode == 'jiedan' || scanmode == 'jdsearch') {
+					//alert('测试');
+					lcdianhao = '';
+					localStorage.setItem('$lcdianhao', JSON.stringify(lcdianhao));
+					mui.openWindow({
+						url: 'gdlist.html',
+						id: 'gdlist'
+					});
+					return false;
+				}
+				//				mui.openWindow({
+				//				            url:'scan.html',
+				//				            id:'scan'
+				//				      });
+
+			}
+
+			function exit(qmode) {
+				if (qmode == 'logout') {
+					//					plus.webview.currentWebview().close();
+					//					self.location='index.html';
+					mui.back();
+					mui.back();
+				}
+				if (qmode == 'quit') {
+					plus.runtime.quit();
+					//alert('quit');
+				}
+			}
+		</script>
+	</body>
+</html>

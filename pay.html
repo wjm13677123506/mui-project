@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>充值页面</title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/iconfont.css" />
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav ye-header">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">充值</h1>
+	</header>
+	<div class="mui-content">
+	    <div class="cz-div">
+	    	<div class="public-list-txt public-margin-top">
+	    	    <ul class="mui-table-view">
+	    	        <li class="mui-table-view-cell">
+	    	            <!--<a class="mui-navigate-right">-->
+	    	                <sapn>充值金额：</sapn>
+	    	                <input type="text" id="money_input" placeholder="请输入充值金额" style="margin-bottom: 0px;padding: 0px;width:50%;float: right;text-align: right;height:20px;line-height: 20px;border:0px;position: relative;top:0px;font-size: 14px;" />
+	    	            <!--</a>-->
+	    	        </li>
+	    	    </ul>
+	    	</div>
+	    	<div class="pay-class">
+	    		<div class="public-list-txt">
+	    		    <ul class="mui-table-view">
+	    		        <li class="mui-table-view-cell">
+	    		            <a class="">
+	    		                <span>选择支付方式</span>
+	    		            </a>
+	    		        </li>
+	    		        <li class="mui-table-view-cell ">
+	    		            <!--<a class="">-->
+	    		                <span>支付宝支付</span>
+	    		                <input type="radio" name='aa' class="mui-pull-right" style="position: relative;top:3px;"/>
+	    		            <!--</a>-->
+	    		        </li>
+	    		         <li class="mui-table-view-cell ">
+	    		            <!--<a class="">-->
+	    		                <span>微信支付</span>
+	    		                <input type="radio" name='aa' class="mui-pull-right" style="position: relative;top:3px;"/>
+	    		            <!--</a>-->
+	    		        </li>
+	    		    </ul>
+	    		</div>
+	    	</div>
+	    	 <a href="pay-succ.html">
+				 <button class="public-g-btn btn-block public-b-btn" id="btn">确定充值</button>
+			 </a>
+	    </div>
+	    
+	</div>
+	
+	<script src="js/castapp.js"></script>
+	<script>
+	
+		ca.init();
+		var money_input = ca.id('money_input');
+		var input = ca.className('mui-pull-right');
+		var btn = ca.id('btn');
+		
+		btn.addEventListener('tap',function(){
+			
+			var money = money_input.value;
+			if(money == ''){
+				ca.prompt('请输入充值金额');
+				return;
+			}
+			if(money < 0.000001){
+				ca.prompt('充值金额不正确');
+				return;
+			}
+			if(!input['0'].checked && !input['1'].checked){
+				ca.prompt('请选择支付方式');
+				return;
+			}
+			
+			var code = ca.getIdCode(10);
+			
+			
+			if(input['0'].checked){
+				//支付宝
+				ca.pay({
+				    name:'ele订单'+code,
+				    appid:'2016010720042564848',
+				    appkey:'ed4qj6la1xv5wskh0b8m',
+				    type:'alipay',
+				    money:money,
+				    succFn:function(){
+				       
+				       var request_url = localStorage.getItem('request_url');
+				       var login_phone = localStorage.getItem('login_phone');
+				       
+				       ca.get({
+				       	url:request_url + 'User/plus_money',
+				       	data:{
+				       		phone_data:login_phone,
+				       		money_data:money
+				       	},
+				       	succFn:function(data){
+				       		
+				       		if(data != -1){
+				       			ca.prompt('充值成功');   	
+				       			
+				       			var user_json = JSON.parse(localStorage.getItem('user_data'));
+				       			
+				       			user_json.money = data;
+				       			
+				       			localStorage.setItem('user_data',JSON.stringify(user_json));
+				       			
+				       			
+				       			var arr = ['money'];
+				       			ca.sendNotice(arr,'update',{});
+				       			
+				       			setTimeout(function(){
+				       				ca.closeCurrentInterface();	
+				       			},2000);
+				       			
+				       			
+				       			
+				       		}else{
+				       			ca.prompt('充值失败,联系客服');
+				       		}
+	       		
+				       	}
+				       });       
+				       
+				    }
+				});
+				
+				
+				
+			}else{
+				//微信
+				
+				
+				
+			}
+			
+			
+		});
+	
+	
+	
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "index.html": {
+    "refer": [
+      "main.html"
+    ],
+    "resources": []
+  },
+  "main.html": {
+    "refer": [
+      "scan.html",
+      "gdlist.html",
+      "index.html"
+    ],
+    "resources": []
+  },
+  "scan.html": {
+    "refer": [
+      "main.html",
+      "gdlist.html"
+    ],
+    "resources": []
+  },
+  "gdlist.html": {
+    "refer": [
+      "main.html",
+      "scan.html"
+    ],
+    "resources": []
+  }
+}

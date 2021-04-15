@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>巨华软件-司机端送货确认</title>
+    	<script src="js/mui.min.js"></script>
+    	<link href="css/mui.min.css" rel="stylesheet"/>
+    	<link href="css/login.css" rel="stylesheet"/>
+    	<script src="js/app.js"></script>
+		<script type="text/javascript">
+			// H5 plus事件处理
+//			var ws=null,wo=null;
+			var lys = localStorage.getItem('$scanmode') || "";	
+			lys=lys.replace(/\"/g, "");
+			var lcdianhao = localStorage.getItem('$lcdianhao') || "";
+			lcdianhao = lcdianhao.replace(/\"/g, "");
+			var states = app.getState();
+			states.account = states.account || "";
+			function plusReady(){
+				// 关闭窗口对象
+//				plus.webview.close('scan')
+//				// 获取窗口对象
+//				ws=plus.webview.currentWebview();
+//				wo=ws.opener();
+				//测试
+//				app.jtext();				
+				
+			}
+			if(window.plus){
+				plusReady();
+			}else{
+				document.addEventListener('plusready', plusReady, false);
+			}
+		window.onload = function(){		
+			//任务类型
+			var h1= document.getElementsByTagName("h1")[0];
+			switch(lys)
+			{
+				case "jiedans":
+					h1.innerHTML ="接单任务确认";
+					break;
+				case "jiedan":
+					h1.innerHTML ="接单任务确认";
+					break;	
+				case "saouts":
+					h1.innerHTML ="已送货任务确认";
+					break;
+				case "saout":
+					h1.innerHTML ="已送货任务确认";
+					break;	
+				case "jdsearch":
+					h1.innerHTML ="已接单未送货任务";
+					break;		
+			}	
+			mui('body').on('tap','a',function(){document.location.href=this.href;});
+			//搜索单号
+		    if (lcdianhao!="" ){
+			    var txtorderbox = document.getElementById('TxtOrder');
+			    txtorderbox.value=lcdianhao;
+			    search();
+		    }
+		    if (lys=="jdsearch"){
+			    var txtorderbox = document.getElementById('TxtOrder');
+			    txtorderbox.value=lcdianhao;
+			    searchjd();
+		    }
+		    
+		};	
+		</script>
+		<script>
+			function search()
+			{
+//				alert(lys);
+				if (lys=="jdsearch")
+				{
+					searchjd();
+					return false;
+				}
+				var txtordervalue=document.getElementById("TxtOrder").value;
+				var tgdlist = document.getElementById("showdata");
+				if (txtordervalue=="请输入送货单号")
+					{
+//						plus.nativeUI.toast("请输入送货单号");
+						return false;
+					}
+				tgdlist.innerHTML="<div class='Production_list'><ul><li style='background-color:#EFEFF4'><span>正在加载...</span></li></ul><div>";	
+				app.checkgdinfo(lys,txtordervalue,function(info) {
+					if (info=="True") 
+					{
+						app.getgddatainfo(txtordervalue,lys,function(gdinfo) {
+//							alert(gdinfo);
+							tgdlist.innerHTML=gdinfo ;
+//							var tjson = eval(gdinfo);
+//            				alert(tjson[0].dianhao);
+						});
+//						alert("执行其它操作");
+					}else{
+						tgdlist.innerHTML="<div class='Production_list'><ul><li style='background-color:#EFEFF4'><span>" + info + "</span></li></ul><div>";
+//						plus.nativeUI.toast(info);
+						return false;
+					}
+					
+					
+				});
+
+		  }		
+		  //接单未送货清单
+		  function searchjd()
+			{
+//				alert(lys);
+				var txtordervalue=document.getElementById("TxtOrder").value;				
+				var tgdlist = document.getElementById("showdata");
+				if (txtordervalue=="请输入送货单号")
+					{
+//						plus.nativeUI.toast("请输入送货单号");
+						return false;
+					}
+				tgdlist.innerHTML="<div class='Production_list'><ul><li style='background-color:#EFEFF4'><span>正在加载...</span></li></ul><div>";	
+				
+			    app.getjddata(txtordervalue,lys,states.account,function(gdinfo) {
+//							alert(gdinfo);
+							tgdlist.innerHTML=gdinfo ;
+//							var tjson = eval(gdinfo);
+//            				alert(tjson[0].dianhao);
+						});
+//						alert("执行其它操作");
+					
+		  }	
+			function submit(tdianhao,tid,texecmode)
+			{
+//				alert(tdianhao+tid+texecmode);
+//				return false;
+				var btnArray = ['取消', '提交'];
+				mui.confirm('确认提交吗？', '确认',  btnArray, function(e) {
+						if (e.index == 1) {							
+							app.updategd(texecmode,tdianhao,tid,states.account,function(info) {
+//								alert(info);
+								if (info=="True") 
+								{
+									plus.nativeUI.toast('已成功提交');
+									search();
+//									mui.back();
+								}else{
+									plus.nativeUI.toast(info);
+								}
+							});							
+						}
+						else{
+							return false;
+						}
+					})				
+			}
+			
+			function toscan()
+				{
+//					alert('ddd');						
+					plus.webview.open('scan.html');	
+					plus.webview.currentWebview().close();
+				}
+		</script>
+	
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a href="javascript:toscan();" class="mui-btn mui-btn-link mui-pull-right" style="color:#999">扫一扫 </a>
+					<h1 class="mui-title">生产任务</h1>	
+		</header>
+		<table width="100%" height="80" border="0">
+        	<tr>
+		    <td height="50"></td>
+	      </tr>
+		  <tr>		  	
+		    <td height="40" align="center" valign="middle">
+            <div class="such">              
+              <input type="text"  value='请输入送货单号' class="searTxt" id="TxtOrder" onfocus="if (value =='请输入送货单号'){value =''}" onblur="if (value ==''){value='请输入送货单号'}"/>
+              <button type="button" id="CmdSearch" onclick='search()'  ; %>搜索</button>
+            </div></td>
+	      </tr>
+	    </table>
+		<div id="showdata">		
+			<div class="Production_list">
+		  <ul>
+	      <li style="background-color:#EFEFF4"> <span >请输入单号搜索 </span></li>	      
+	      </ul>
+	     </div>
+		  <!--<p><button class="obth">提交</button></p>-->
+	  	</div>
+
+	</body>
+</html>

@@ -1,0 +1,532 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>巨华软件</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<!-- IOS中Safari允许全屏浏览 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!-- IOS中safari顶端的状态条的样式 -->
+		<meta name="apple-touch-fullscreen" content="yes" />
+		<!-- 删除默认的苹果工具栏和菜单栏 -->
+		<meta name="format-detection" content="telephone=no,email=no" />
+		<!-- 忽略将页面中的数字识别为电话号码 -->
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/mui.dtpicker.css" rel="stylesheet" />
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/base.css" rel="stylesheet" />
+		<link href="css/dindan.css" rel="stylesheet" />
+		<!--//<script src="js/mui.picker.js"></script>-->
+		<link href="css/login.css" rel="stylesheet" />
+		<style>
+			.mui-content>.mui-table-view:first-child {
+				margin-top: -1px;
+			}
+
+			.chart {
+				height: 200px;
+				margin: 0px;
+				padding: 0px;
+			}
+
+			h5 {
+				margin-top: 30px;
+				font-weight: bold;
+			}
+
+			h5:first-child {
+				margin-top: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--下拉刷新容器-->
+		<!--<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">				
+				<ul class="mui-table-view mui-table-view-chevron"></ul>
+			</div>
+		</div>-->
+		<!-- <header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<a href="#picture" class="mui-btn mui-btn-link mui-pull-right" style="color:#999">关闭</a>
+			<h1 class="mui-title">猴哥印刷-老板APP</h1>
+		</header> -->
+
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item  mui-active" id="twork" href="#tabbar">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" id="tshenen" href="#tabbar-with-shenhe">
+				<span class="mui-icon mui-icon-map"><span id="shenhe_id" class="mui-badge">8</span></span>
+				<span class="mui-tab-label">待审单据</span>
+			</a>
+			<a class="mui-tab-item" id="myDindan" href="#tabbar-with-myDindan">
+				<span class="mui-icon mui-icon-chat"><span class="mui-badge">3</span></span>
+				<span class="mui-tab-label">我的订单</span>
+			</a>
+			<!-- <a class="mui-tab-item" id="tcharts" href="#tabbar-with-charts">
+				<span class="mui-icon mui-icon-pengyouquan"></span>
+				<span class="mui-tab-label">图表</span>
+			</a> -->
+			<a class="mui-tab-item" id="user-info" href="#tabbar-with-user">
+				<span class="mui-icon mui-icon-pengyouquan"></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+
+		<div class="mui-content">
+			<!--//首页-->
+			<div id="tabbar" class="mui-control-content mui-active">
+				<header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
+					<!-- <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a> -->
+					<!-- <a href="#picture" class="mui-btn mui-btn-link mui-pull-right" style="color:#999">关闭</a> -->
+					<h1 class="mui-title">首页</h1>
+				</header>
+				<div class="mui-card" style="margin-top: 50px;">
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<table width="100%" border="0">
+								<tr>
+									<td height="60" align="center" valign="middle"><a
+											h1ref="javascript:scan('scinfo')"><img src="images/main_7.png" width="86"
+												height="86" </a></td>
+									<td height="60" align="center" valign="middle"><a
+											href="javascript:scan('mesinfo')"><img src="images/main_8.png" width="86"
+												height="86" </a></td>
+								</tr>
+								<tr>
+									<td height="15" align="center" valign="middle">车间看板</td>
+									<td height="15" align="center" valign="middle">出货看板</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<table width="100%" border="0">
+								<tr>
+									<td height="60" align="center" valign="middle"><a
+											h1ref="javascript:scan('operation')"><img src="images/main_5.png" width="86"
+												height="86" </a></td>
+									<td height="60" align="center" valign="middle"><a
+											href="javascript:scan('scinfo')"><img src="images/main_6.png" width="86"
+												height="86" </a></td>
+								</tr>
+								<tr>
+									<td height="15" align="center" valign="middle">业务员业绩</td>
+									<td height="15" align="center" valign="middle">经营状况</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<table width="100%" border="0">
+								<tr>
+									<td height="60" align="center" valign="middle"><a
+											href="javascript:scan('baojiashenhe')"><img src="images/main_1.png"
+												width="86" height="86" </a></td>
+									<td height="60" align="center" valign="middle"><a
+											href="javascript:scan('sashenhe')"><img src="images/main_2.png" width="86"
+												height="86" </a></td>
+								</tr>
+								<tr>
+									<td height="15" align="center" valign="middle">报价查询</td>
+									<td height="15" align="center" valign="middle">库存查询</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="mui-card-content">
+						<div class="mui-card-content-inner">
+							<table width="100%" border="0">
+								<tr>
+									<td height="60" align="center" valign="middle"><a
+											href="javascript:scan('jiedan')"><img src="images/main_3.png" width="86"
+												height="86" </a></td>
+									<td height="60" align="center" valign="middle"><a
+											href="javascript:scan('saout')"><img src="images/main_4.png" width="86"
+												height="86" </a></td>
+								</tr>
+								<tr>
+									<td height="15" align="center" valign="middle">司机配送</td>
+									<td height="15" align="center" valign="middle">客户收货</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--//待审单据-->
+			<div id="tabbar-with-shenhe" class="mui-control-content">
+				<div class="mui-card">
+					<ul class="mui-table-view mui-table-view-chevron">
+						<li class="mui-table-view-divider">待审核单据</li>
+						<li class="mui-table-view-cell">报价<span class="mui-badge mui-badge-primary">0</span></li>
+						<li class="mui-table-view-cell">销售订单<span class="mui-badge mui-badge-primary">0</span></li>
+						<li class="mui-table-view-cell">申购单<span class="mui-badge mui-badge-primary">5</span></li>
+						<li class="mui-table-view-cell">采购订单<span class="mui-badge mui-badge-primary">3</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<!--//我的订单-->
+			<div id="tabbar-with-myDindan" class="mui-control-content">
+				<header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
+					<!-- <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a> -->
+					<a href="#picture" class="mui-btn mui-btn-link mui-pull-right" style="color:#999">关闭</a>
+					<h1 class="mui-title">我的订单</h1>
+				</header>
+				
+				<!-- 切换栏 -->
+				<div class="dindan-tab">
+					<ul>
+						<li class="li-aa default-bg">全部订单</li>
+						<li class="li-aa">待付款</li>
+						<li class="li-aa">待审核</li>
+						<li class="li-aa">生产中</li>
+						<li class="li-aa">已完成</li>
+						<li class="li-aa">已取消</li>
+					</ul>
+				</div>
+
+				<!-- 卡片1 -->
+				<div class="mui-card">
+					<!--页眉-->
+					<div class="mui-card-header">
+						<div>
+							订单号:1656498465165498498
+						</div>
+						<div>
+							审核中
+						</div>
+					</div>
+					<!--内容-->
+					<div class="mui-card-content">
+						<div class="content-row1">
+							<div class="col1">
+								<img src="images/main_3.png" />
+							</div>
+							<div class="col2">
+								<p>款型:无碳联单</p>
+								<p>17.5*9.5cm-二联-50本</p>
+								<p>支付信息:已付定金</p>
+							</div>
+							<div class="col3"><span>$150.00</span></div>
+						</div>
+					</div>
+					<!--页脚-->
+					<div class="mui-card-footer">
+						<span>
+							下单时间: 2021-4-12 15:32:03
+						</span>
+					</div>
+				</div>
+
+				<!-- 卡片2 -->
+				<div class="mui-card">
+					<!--页眉-->
+					<div class="mui-card-header">
+						<div>
+							订单号:1656498465165498498
+						</div>
+						<div>
+							审核中
+						</div>
+					</div>
+					<!--内容-->
+					<div class="mui-card-content">
+						<div class="content-row1">
+							<div class="col1">
+								<img src="images/main_7.png" />
+							</div>
+							<div class="col2">
+								<p>款型:无碳联单</p>
+								<p>17.5*9.5cm-二联-50本</p>
+								<p>支付信息:已付定金</p>
+							</div>
+							<div class="col3"><span>$150.00</span></div>
+						</div>
+					</div>
+					<!--页脚-->
+					<div class="mui-card-footer">
+						<span>
+							下单时间: 2021-4-12 15:32:03
+						</span>
+					</div>
+				</div>
+				
+			</div>
+
+			<!-- 我的 -->
+			<div id="tabbar-with-user" class="mui-control-content">
+				<!-- 头部 -->
+				<header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
+					<!-- <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a> -->
+					<a href="#picture" class="mui-btn mui-btn-link mui-pull-right" style="color:#999">关闭</a>
+					<h1 class="mui-title">我的</h1>
+				</header>
+
+				<ul class="mui-table-view" style="margin-top: 50px; ">
+					<li class="mui-table-view-cell mui-media">
+						<a class="mui-navigate-right" href="userInfo.html">
+							<img class="mui-media-object mui-pull-left" src="images/logo96.png">
+							<div class="mui-media-body">
+								我
+								<p class='mui-ellipsis'>13677123506</p>
+							</div>
+						</a>
+					</li>
+				</ul>
+
+				<div class="mui-card" style="margin-bottom: 35px;">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right" href="chongzhi.html" style="display: flex; justify-content: space-between;">
+								<span>我的余额</span>
+								<span style="padding-right: 30px;">0.00</span>
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right" href="address.html">
+								收获地址
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								密码修改
+							</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<!--//退出-->
+		<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<!-- <a href="javascript:exit('logout')">重新登陆</a> -->
+					<a href="login.html">重新登陆</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a href="javascript:exit('quit')">退出APP</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a href="#picture"><b>取消</b></a>
+				</li>
+			</ul>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/echarts-all.js"></script>
+		<script src="js/mui.dtpicker.js"></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<!--<script src="js/echarts-all.js"></script>	-->
+		<script>
+			var tarbarselect = 1;
+			var tarbarsvalue = 0;
+
+			mui.init({
+				//				pullRefresh: {						
+				//					container: '#pullrefresh',
+				//					down: {
+				//						style:'circle',
+				//						callback: pulldownRefresh
+				//					},					
+				//				}
+			});
+
+			$('.li-aa').click(function() {
+				// alert('123');
+				$(this).addClass('select-bg');
+				$(this).siblings().removeClass("select-bg");
+				$(this).siblings().removeClass("default-bg");
+			})
+
+			window.onload = function() {
+
+
+			}
+
+			//		function pulldownRefresh() {					
+			//					setTimeout(function() {					
+			//						mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+			////						document.getElementById('shenhe_id').innerText="10";
+			//					}, 1000);			
+			//		}
+			//		setInterval(function() {getdatainfo()},3000);
+			//		function getdatainfo(){
+			//			tarbarsvalue = tarbarsvalue +1;
+			//			document.getElementById('shenhe_id').innerText = tarbarsvalue;
+			//		}
+
+			var chartdata = [{
+					value: 15,
+					name: '未排'
+				},
+				{
+					value: 30,
+					name: '已排单'
+				},
+				{
+					value: 45,
+					name: '已生产'
+				},
+				{
+					value: 50,
+					name: '已出货'
+				},
+				{
+					value: 80,
+					name: '已回单'
+				}
+			];
+			var option = {
+				legend: {
+					orient: 'horizontal',
+					left: 'left',
+					bottom: 0, //底部
+					data: ['未排', '已排单', '已生产', '已出货', '已回单']
+				},
+				series: [{
+					name: '访问来源',
+					type: 'pie',
+					radius: '45%',
+					center: ['50%', '60%'],
+					data: chartdata,
+					itemStyle: {
+						normal: {
+							label: {
+								show: true,
+								formatter: '{c} ({d}%)'
+							},
+							labelLine: {
+								show: true
+							}
+						}
+					}
+				}]
+			};
+
+			var chartdata1 = [{
+					value: 215,
+					name: '未排'
+				},
+				{
+					value: 300,
+					name: '已排单'
+				},
+				{
+					value: 145,
+					name: '已生产'
+				},
+				{
+					value: 510,
+					name: '已出货'
+				},
+				{
+					value: 180,
+					name: '已回单'
+				}
+			];
+			var option1 = {
+				legend: {
+					orient: 'horizontal',
+					left: 'left',
+					bottom: 0, //底部
+					data: ['未排', '已排单', '已生产', '已出货', '已回单']
+				},
+				series: [{
+					name: '访问来源',
+					type: 'pie',
+					radius: '45%',
+					center: ['50%', '60%'],
+					data: chartdata1,
+					itemStyle: {
+						normal: {
+							label: {
+								show: true,
+								formatter: '{c} ({d}%)'
+							},
+							labelLine: {
+								show: true
+							}
+						}
+					}
+				}]
+			};
+			document.getElementById('tcharts').addEventListener('tap', function() {
+				tarbarselect = 4;
+				document.getElementById('tabbar-with-charts').style.display = 'block';
+				var myChart = echarts.init(document.getElementById('pieChart'));
+				myChart.setOption(option);
+				var myChart1 = echarts.init(document.getElementById('monthChart'));
+				myChart1.setOption(option1);
+				//			alert('显示图表');
+
+			});
+
+			document.getElementById('twork').addEventListener('tap', function() {
+				tarbarselect = 1
+				document.getElementById('tabbar-with-charts').style.display = 'none';
+
+			});
+			document.getElementById('tshenen').addEventListener('tap', function() {
+				document.getElementById('tabbar-with-charts').style.display = 'none';
+				tarbarselect = 2
+			});
+			document.getElementById('tinfo').addEventListener('tap', function() {
+				document.getElementById('tabbar-with-charts').style.display = 'none';
+				tarbarselect = 3
+			});
+
+
+			function scan(scanmode) {
+
+				scanmode = scanmode || '';
+				localStorage.setItem('$scanmode', JSON.stringify(scanmode));
+				if (scanmode == 'saout' || scanmode == 'jiedan' || scanmode == 'jdsearch') {
+					//alert('测试');
+					lcdianhao = '';
+					localStorage.setItem('$lcdianhao', JSON.stringify(lcdianhao));
+					mui.openWindow({
+						url: 'gdlist.html',
+						id: 'gdlist'
+					});
+					return false;
+				}
+				//				mui.openWindow({
+				//				            url:'scan.html',
+				//				            id:'scan'
+				//				      });
+
+			}
+
+			function exit(qmode) {
+				if (qmode == 'logout') {
+					//					plus.webview.currentWebview().close();
+					//					self.location='index.html';
+					mui.back();
+					mui.back();
+				}
+				if (qmode == 'quit') {
+					plus.runtime.quit();
+					//alert('quit');
+				}
+			}
+		</script>
+	</body>
+</html>

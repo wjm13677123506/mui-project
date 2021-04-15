@@ -1,0 +1,178 @@
+/* 公共导航栏  */
+.mui-bar-nav {
+	background-color: #007AFF;
+	color: white;
+	/* position: relative; */
+}
+
+.mui-bar-nav a {
+	color: white;
+}
+
+.mui-bar-nav h1 {
+	color: white;
+}
+
+/*通用绿色按钮*/
+.public-g-btn {
+	background: #55D075;
+	color: #fff;
+	border: 0px;
+	display: block;
+	margin: 20px auto;
+	height: 45px;
+	width: 90%;
+	font-size: 18px;
+}
+
+/* 灰色字体 */
+.dark-font{
+	color: #929292;
+}
+
+.mui-radio label {
+	color: #757575;
+}
+
+/*我的*/
+
+.home-div-top {
+	color: #fff;
+	background: #007AFF;
+	overflow: hidden;
+	padding: 20px;
+}
+
+.home-nav {
+	box-shadow: 0px 0px 0px;
+}
+
+.home-div-top-l {
+	float: left;
+	width: 25%;
+}
+
+.home-div-top-l img {
+	width: 60px;
+	height: 60px;
+	border-radius: 100px;
+}
+
+.home-div-top-r {
+	float: right;
+	width: 70%;
+	padding-top: 5px;
+	margin-left: 10px;
+	position: relative;
+}
+
+.home-div-top-r h4 {
+	font-size: 20px;
+	font-weight: normal;
+}
+
+.home-div-top-r p {
+	color: #fff;
+	font-size: 13px;
+}
+
+.home-div-top-r .right-icon {
+	position: absolute;
+	top: 15px;
+	right: 0px;
+}
+
+.home-mony {
+	overflow: hidden;
+	background: #fff;
+}
+
+.home-mony h5 {
+	color: #666;
+}
+
+.home-mony div {
+	width: 50%;
+	float: left;
+	padding: 8px 0px;
+	text-align: center;
+	border-right: 1px solid #e2e2e2;
+}
+
+.big-txt {
+	font-size: 25px;
+	margin-right: 3px;
+}
+
+.g-txt {
+	color: #6DC310;
+}
+
+.icon-div {
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+	background: red;
+	text-align: center;
+	line-height: 30px;
+	color: #fff;
+	border-radius: 100px;
+}
+
+.home-list-div {
+	margin-top: 15px;
+}
+
+.list-l-icon {
+	margin-right: 10px;
+	font-size: 22px !important;
+}
+
+/*设置*/
+.tc-btn {
+	color: #F33C3C;
+	border: 0px;
+	width: 80%;
+	display: block;
+	margin: 20px auto;
+	background: #fff;
+	height: 40px;
+}
+
+/* 收获地址 */
+.upd-address-div {
+	width: 100%;
+	height: 100%;
+	/* border: 1px solid; */
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+	background-color: white;
+	display: none;
+	
+	
+}
+
+
+.foot-nav{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 52px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: white;
+	border-top: 1px solid #929292;
+}
+
+.foot-nav span{
+	display: block;
+	margin: 0 auto;
+	/* color: #929292; */
+}
+
+.foot-nav div span:nth-of-type(2){
+	font-size: 11px;
+	
+}

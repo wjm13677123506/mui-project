@@ -1,0 +1,45 @@
+
+.login-main{ margin:0 10px; padding-bottom:30px; }
+.login-main ul{padding:0;padding-top:15px;text-align:center;}
+.login-main ul li{text-align:center;padding:0;height:36px; line-height:36px; margin-bottom:10px; position:relative; width:100%;list-style:none;}
+.login-main ul li input{ border:solid 1px #f5f5f5; height:36px; line-height:36px; color:#666;  font-size:1rem; width:100%; box-sizing:border-box; -webkit-box-sizing:border-box;  padding-left:40px; }
+.login-main ul li img{ vertical-align:middle; position:absolute; max-height:80%; top:3px; left:5px;}
+.login-main ul li .yzm-input{ width:60%; padding:0;}
+.login-main ul li .yzm-img{ position:absolute; right:0;left:auto;top:0;height:36px;background:#f5f5f5;}
+
+.login-main ul li a{ font-size:1.4rem;  color:#666; margin-left:15px;}
+.login-main ul li input:focus { border: 1px solid #ccc;} 
+
+.buttonj{ width:100%; height:36px; border-radius:5px; -webkit-border-radius:5px; border:none; background:#4279bc; font-size:1rem; color:#fff; display: inline-block; text-align:center; line-height:28px;}
+.error{ text-align:center; font-size:1rem; color:#999;  padding:20px 0;}
+
+.such { padding:3px; background:#ccc; overflow: hidden; clear:both;height:42px;}
+.such2{ margin-top:1px;url(../images/index_05.png) no-repeat;}
+.such .searTxt{ width:80%; height:34px; border-bottom-left-radius:4px; -webkit-border-bottom-left-radius:4px;border-top-left-radius:4px; -webkit-border-top-left-radius:4px; border:solid 1px #4279bc; float:left; text-indent:16px; color:#ccc; box-sizing:border-box; -webkit-box-sizing:border-box;font-size:1rem;}
+.such button{width:20%;height:34px; border-bottom-right-radius:4px; -webkit-border-bottom-right-radius:4px;border-top-right-radius:4px; -webkit-border-top-right-radius:4px; border:solid 1px #4279bc; font-size:1rem; color:#fff; float:left; background:#4279bc url(../images/index_05.png) no-repeat; background-position:15% center; text-indent:20px; background-size:auto 15px;}
+
+/*生成任务#999*color:#ccc; /
+/*生成任务*/
+.Production_list { box-shadow:5 5 5px rgba(102,102,102,.5); -webkit-box-shadow:0 0 5px rgba(102,102,102,.8); margin:15px 0;border-radius:5px;margin-left:3px;margin-right:3px;}
+.Production_list ul{ background:#fff;padding:1px; overflow:hidden;margin:0px;border-radius:5px}
+.Production_list li{ line-height:30px;height:30px; border-bottom:solid 1px #f5f5f5;list-style:none;padding-left:10px;}
+.Production_list li a{ display: inline-block; width:28%; font-size:1rem; color:#333;  float:left;}
+.Production_list li span{ display: inline-block; width:72%; font-size:1rem;color:#666; float:left; }
+.Production_list li span input{ width:100%; height:30px;font-size:1rem;color:#666; line-height:30px;}
+
+.Production_list p{background:#f5f5f5; height:34px; clear:both;padding:0 1px;}
+.Production_list p button{ width:80px; height:34px; margin-top:1px; float:right; background:#4279bc; color:#fff; border-radius:4px; -webkit-border-radius:4px; font-size:1rem;}
+
+.Production_list2{ margin-top:0;}
+.Production_list2 li{ line-height:40px;height:40px; }
+.WD1{ display:inline-block; width:.5em;}
+.WD2{ display:inline-block; width:1em;}
+.WD3{ display:inline-block; width:2em;}
+
+.examine_table { border-collapse:collapse; width:100%;  text-align:center; margin-top:10px;}
+.examine_table th{font-size:1rem; color:#666;background:#f5f5f5; line-height:32px;border:solid 1px #cccccc;}
+.examine_table a{ display:block;}
+.examine_table td{ font-size:1rem; line-height:32px; border:solid 1px #cccccc; background:#fff;}
+.examine_table td a{ font-size:1rem; color:#4279bc;}
+
+

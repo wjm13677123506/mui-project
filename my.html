@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/public.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+	</head>
+
+	<body>
+		<!-- 头部 -->
+		<header class="mui-bar mui-bar-nav home-nav">
+			<h1 class="mui-title">我的</h1>
+		</header>
+
+		<!-- 内容 -->
+		<div class="mui-content">
+			<div class="home-div">
+				<!-- 我的顶部 -->
+				<a href="login.html">
+					<div class="home-div-top">
+						<div class="home-div-top-l">
+							<img src="images/logo72.png" id="head_img" alt="" />
+						</div>
+						
+						<!--登录前样式-->
+						<div class="home-div-top-r" id="login_event">
+							<h4>登录/注册</h4>
+							<p>登录后可享受更多特权</p>
+							<span class="mui-icon mui-icon-arrowright right-icon"></span>
+						</div>
+						<!-- 登录后样式 -->
+						<div class="home-div-top-r" id="login_succ" style="display: none;">
+							<h4>范德萨</h4>
+							<p><span class="mui-icon mui-icon-phone"></span>170****3398</p>
+							<span class="mui-icon mui-icon-arrowright right-icon"></span>
+						</div>
+					</div>
+				</a>
+
+
+				<!--我的余额-->
+				<div class="home-mony">
+					<a href="money.html">
+						<div class="home-mony-l public_click">
+							<span class="mui-icon iconfont icon-renminbi icon-div" style="background: #FD6A3C;"></span>
+							<h5>我的余额</h5>
+						</div>
+					</a>
+					<a href="integral.html">
+						<div class="home-mony-r public_click" style="border-right:0px;">
+							<span class="mui-icon iconfont icon-hricon38 icon-div" style="background:#07C167"></span>
+							<h5>我的积分</h5>
+						</div>
+					</a>
+				</div>
+
+				<!-- 我的list -->
+				<div class="home-list">
+					<div class="home-list-div public-list-txt">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="address.html">
+									<span style="color: #007AFF;"
+										class="mui-icon iconfont icon-dizhi list-l-icon home-1">
+									</span>
+									<span>收货地址</span>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">
+									<span style="color: red;"
+										class="mui-icon iconfont icon-shoucang01 list-l-icon home-2">
+									</span>
+									<span>我的通知</span>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">
+									<span  style="color: green;"
+										class="mui-icon iconfont icon-shangcheng list-l-icon home-4">
+									</span>
+									<span>积分商城</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<div class="home-list-div public-list-txt">
+						<ul class="mui-table-view">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">
+									<span style="color: blue;"
+										class="mui-icon iconfont icon-fuwuzhongxin list-l-icon home-5">
+									</span>
+									<span>服务中心</span>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">
+									<span style="color: red;"
+										class="mui-icon iconfont icon-shangjiab list-l-icon home-6">
+									</span>
+									<span>我是商家</span>
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right" href="setting.html">
+									<span style="color: green;"
+										class="mui-icon iconfont icon-xiangce list-l-icon home-3">
+									</span>
+									<span>设置</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="foot-nav">
+			<a href="dindan.html">
+				<div class="foot-nav-l">
+					<span class="mui-icon mui-icon-chat dark-font" style="text-align: center;"></span>
+					<span class="dark-font">我的订单</span>
+				</div>
+			</a>
+			<a href="my.html">
+				<div class="foot-nav-r">
+					<span class="mui-icon  mui-icon-pengyouquan" align='center'></span>
+					<span>我的</span>
+				</div>
+			</a>
+		</div>
+
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

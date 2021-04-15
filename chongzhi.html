@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+	</head>
+	
+	<style>
+		.moneyD{
+			display: flex;
+			justify-content: space-around;
+			margin-top: 20px;
+		}
+		.moneyD span{
+			background-color: white;
+			display: inline-block;
+			width: 100px;
+			height: 30px;
+			/* border:1px solid #007AFF; */
+			font-size: 14px;
+			text-align: center;
+			line-height: 30px;
+			
+		}
+		
+		.moneyD span:hover{
+			border:1px solid #007AFF;
+		
+			
+		}
+	</style>
+	<body>
+		<header class="mui-bar mui-bar-nav" style="padding-right: 15px; position: relative;">
+			<a class=" mui-icon mui-icon-left-nav mui-pull-left " href="main.html#tabbar-with-user"></a>
+			<!-- <a href="#picture" class="mui-btn mui-btn-link mui-pull-right" style="color:#999">关闭</a> -->
+			<h1 class="mui-title">余额充值</h1>
+		</header>
+		
+		<div style="padding: 30px 0  0 10px; ">
+			<p>
+				<span style="color: #000000;">余额:</span>  
+				<span style="color: red; padding-left: 10px;">$121654</span>
+			</p>
+			
+		</div>
+		
+		<div style="margin-top: 10px;">
+			<p style="padding: 10px 0  0 10px;">请选择充值金额:</p>
+			<div class="moneyD">
+				<span>充1送0</span>
+				<span>充10000送300</span>
+				<span>充5000送100</span>
+			</div>
+		</div>
+		
+		<div style="width:100%; display: flex;justify-content: center;margin-top: 50px;">
+			<button style="width: 300px;border-radius: 20px; color: white; background-color: #007AFF;">
+				立即支付
+			</button>
+		</div>
+		
+		
+		
+		
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

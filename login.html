@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>猴哥印刷</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/login.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<style>
+			.mui-btn {
+				padding: 5px;
+			}
+
+			html,
+			body {
+				background-color: #efeff4;
+			}
+
+			/* p {
+				text-indent: 22px;
+			} */
+
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px;
+			}
+
+			.mui-off-canvas-left {
+				color: #fff;
+			}
+
+			.title {
+				margin: 35px 15px 10px;
+			}
+
+			.title+.content {
+				margin: 10px 15px 35px;
+				color: #bbb;
+				text-indent: 1em;
+				font-size: 14px;
+				line-height: 24px;
+			}
+
+			input {
+				color: #000;
+			}
+
+			.hgimg {
+				background-size: 100% 100%;
+				height: 80px;
+				width: 192px;
+				margin-left: 120px;
+			}
+		</style>
+
+	</head>
+	<body>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			<!--主界面部分-->
+			<div class="mui-inner-wrap">
+				<!-- 头部 -->
+				<header class="mui-bar mui-bar-nav" style="background-color: #007AFF;">
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+					<h1 class="mui-title" style="color: white;">登录</h1>
+					<a href="reg.html">
+						<button class="mui-btn-link  mui-pull-right" style="color: white;">注册</button>
+					</a>
+				</header>
+
+				<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+					<!--<header class="mui-bar mui-bar-nav">
+		    	         <h1 class="mui-title">登录</h1>
+		            </header>-->
+					<p align="center">
+						<br></br>
+					</p>
+					<p align="center">
+						<img src="images/houge.png" alt="猴哥印刷" class="hgimg">
+					</p>
+					<p align="center" class="Juhua-title">猴哥印刷 </p>
+					<div class="login-main">
+						<ul>
+							<li>
+								<img src="images/016.png" /><input type="text" placeholder="请输入登陆账号" id="username" />
+							</li>
+							<li>
+								<img src="images/015.png" /><input type="password" placeholder="请输入登陆密码" id="pass" />
+							</li>
+							<li>
+								<table width="100%" border="0" align="center">
+									<tr>
+										<td align="left" valign="middle">
+											<font size="3" color="#8F8F94"> 自动登录
+										</td>
+										<td align="right" valign="middle">
+											<div id="autoLogin" class="mui-switch mui-switch-mini">
+												<div class="mui-switch-handle"></div>
+											</div>
+										</td>
+									</tr>
+								</table>
+
+							</li>
+						</ul>
+						<a href="my.html">
+							<button type="button" class="buttonj" id="loginbt">
+								登录
+							</button>
+						</a>
+						<a href="reset-password.html">
+							<button class="mui-btn-link mui-pull-left" style="padding-top: 20px;">
+								忘记密码?
+							</button>
+						</a>
+						<a href="reg.html">
+							<button class="mui-btn-link mui-pull-right" style="padding-top: 20px;">
+								立即注册
+							</button>
+						</a>
+					</div>
+					<div class="error" style="margin-top: 100px;">务实 简单 易用</div>
+				</div>
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+		</div>
+
+		<script src="js/mui.enterfocus.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init({
+					statusBarBackground: '#f7f7f7'
+				});
+				
+				$.plusReady(function() {
+					//禁止横屏
+					plus.screen.lockOrientation("portrait-primary");
+					//取登陆状态
+					var settings = app.getSettings();
+					//预加载主页
+					var mainPage = $.preload({
+						"id": 'main',
+						"url": 'main.html'
+					});
+					var main_loaded_flag = false;
+					mainPage.addEventListener("loaded", function() {
+						main_loaded_flag = true;
+					});
+					var toMain = function() {
+						//使用定时器的原因：
+						//可能执行太快，main页面loaded事件尚未触发就执行自定义事件，此时必然会失败
+						var id = setInterval(function() {
+							if (main_loaded_flag) {
+								clearInterval(id);
+								$.fire(mainPage, 'show', null);
+								mainPage.show("pop-in");
+							}
+						}, 20);
+					};
+
+					// close splash
+					setTimeout(function() {
+						//关闭 splash
+						plus.navigator.closeSplashscreen();
+					}, 300);
+
+
+					//检查 "登录状态 结束
+					var loginButton = doc.getElementById('loginbt');
+					var accountBox = doc.getElementById('username');
+					var passwordBox = doc.getElementById('pass');
+					var autoLoginButton = doc.getElementById("autoLogin");
+
+					//如是自动登陆，执行登陆操作
+					if (settings.autoLogin) {
+						//取已登陆的用户名、密码
+						var states = app.getState();
+						//					accountBox.value = accountBox.value || '';
+						//					passwordBox.value = passwordBox.value || '';
+						states.account = states.account || '';
+						states.token = states.token || '';
+						accountBox.value = states.account;
+						passwordBox.value = states.token;
+						app.login(accountBox.value, passwordBox.value, function(err) {
+							if (err) {
+								plus.nativeUI.toast(err);
+								return;
+							}
+							toMain();
+						});
+						//					toMain();
+					};
+					//loginbutton点击事件
+					loginButton.addEventListener('tap', function(event) {
+						//					var loginInfo = {
+						//						account: accountBox.value,
+						//						password: passwordBox.value
+						//					};
+
+						app.login(accountBox.value, passwordBox.value, function(err) {
+							if (err) {
+								plus.nativeUI.toast(err);
+								return;
+							}
+							toMain();
+						});
+					});
+					//回车键触发login
+					$.enterfocus('#login-form input', function() {
+						$.trigger(loginButton, 'tap');
+					});
+					//swich开头
+					autoLoginButton.classList[settings.autoLogin ? 'add' : 'remove']('mui-active')
+					autoLoginButton.addEventListener('toggle', function(event) {
+						setTimeout(function() {
+							var isActive = event.detail.isActive;
+							settings.autoLogin = isActive;
+							app.setSettings(settings);
+						}, 50);
+					}, false);
+
+					//返回键退出
+					var backButtonPress = 0;
+					$.back = function(event) {
+						backButtonPress++;
+						if (backButtonPress > 1) {
+							plus.runtime.quit();
+						} else {
+							plus.nativeUI.toast('再按一次退出应用');
+						}
+						setTimeout(function() {
+							backButtonPress = 0;
+						}, 500);
+						return false;
+					};
+					//添加li容器tab事件，因mui禁止了侧滑href,onclick操作
+					document.getElementById("h2").addEventListener('tap', function() {
+						setting();
+					});
+
+				});
+
+
+			}(mui, document));
+
+			function setting() {
+				var btnArray = ['取消', '保存'];
+				var setServerText = localStorage.getItem('$ServerText') || '例：www.juhuasoft.com:5500';
+				setServerText = setServerText.replace(/\"/g, "");
+				mui.prompt('请输入服务器参数：', setServerText, '设置', btnArray, function(e) {
+					if (e.index == 1) {
+						localStorage.setItem('$ServerText', JSON.stringify(e.value));
+					}
+				})
+			}
+		</script>
+	</body>
+</html>

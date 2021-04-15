@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+	</head>
+	<style>
+		.mui-card:first-of-type {
+			margin-top: 50px;
+		}
+	</style>
+	<body>
+		<header class="mui-bar mui-bar-nav" style="padding-right: 15px; position: relative;">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left " href="main.html"></a>
+			<!-- <a href="#picture" class="mui-btn mui-btn-link mui-pull-right" style="color:#999">关闭</a> -->
+			<h1 class="mui-title">我的收货地址</h1>
+		</header>
+
+		<!-- 卡片1 -->
+		<div class="mui-card div-del" style="margin-top: 10px;">
+			<div class="mui-card-content">
+				<div class="mui-card-content-inner">
+					<p class="add-default">
+						<span style="color: black;">艾弗森</span>
+						<span>13677456844</span>
+						<!-- <span class="default-span"
+							style="background-color: #007AFF; color: white;padding: 2px 5px;">
+							默认
+						</span> -->
+					</p>
+					<p>
+						<span style="color: black;">广东省深圳市哦深刻搭街坊拉克斯基的拉克丝</span>
+						<a href="addAddress.html">
+							<span class="mui-icon mui-icon-compose mui-pull-right"></span>
+						</a>
+					</p>
+				</div>
+			</div>
+			<div class="mui-card-footer">
+				<span class="set-default">默认地址</span>
+				<span class="span-del">删除</span>
+			</div>
+		</div>
+
+		<!-- 卡片2 -->
+		<div class="mui-card div-del" style="margin-top: 10px;">
+			<div class="mui-card-content">
+				<div class="mui-card-content-inner">
+					<p class="add-default">
+						<span style="color: #000000;">额外人</span>
+						<span>13677456844</span>
+						
+					</p>
+					<p style="color: black;">
+						广东省深圳市哦深刻搭街坊拉克斯基的拉克丝<span class="mui-icon mui-icon-compose mui-pull-right"></span>
+					</p>
+
+				</div>
+			</div>
+			<div class="mui-card-footer">
+				<span class="set-default">默认地址</span>
+				<span class="span-del">删除</span>
+			</div>
+		</div>
+
+
+		<!-- 底部按钮 -->
+		<div class="address-footer"
+			style="position: fixed;bottom: 50px;height: 40px;width: 100%; background-color: white;">
+			<a href="addAddress.html">
+				<button type="button" class="mui-btn mui-btn-primary mui-btn-block  mui-icon mui-icon-plusempty">
+					添加收获地址
+				</button>
+			</a>
+		</div>
+
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			
+			//点击删除地址
+			$('.span-del').click(function() {
+				// alert('123')
+				$(this).parent().parent().css('display', 'none')
+				
+			})
+			
+			//设为默认地址
+			$('.set-default').one('click',function() {
+				// alert('123')
+				// $('.default-span').css('display', 'inline')
+				$('.add-default').append('<span  style="background-color:#007AFF; color:white; padding:2px 4px;">默认</span>')
+				
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/dindan.css" rel="stylesheet" />
+		<link href="css/base.css" rel='stylesheet' />
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav" style="padding-right: 15px;">
+			<!-- <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a> -->
+			<a href="#picture" class="mui-btn mui-btn-link mui-pull-right" style="color:#999">关闭</a>
+			<h1 class="mui-title">我的订单</h1>
+		</header>
+		
+		<div class="dindan-tab">
+			<ul>
+				<li class="li-aa default-bg">全部订单</li>
+				<li class="li-aa">待付款</li>
+				<li class="li-aa">待审核</li>
+				<li class="li-aa">生产中</li>
+				<li class="li-aa">已完成</li>
+				<li class="li-aa">已取消</li>
+			</ul>
+		</div>
+
+		<!-- 订单1 -->
+		<div class="mui-card">
+			<!--页眉，放置标题-->
+			<div class="mui-card-header">
+				<div>
+					订单号:1656498465165498498
+				</div>
+				<div>
+					审核中
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="mui-card-content">
+				<div class="content-row1">
+					<div class="col1">
+						<img src="images/main_7.png"/>
+					</div>
+					<div class="col2">
+						<p>款型:无碳联单</p>
+						<p>17.5*9.5cm-二联-50本</p>
+						<p>支付信息:已付定金</p>
+					</div>
+					<div class="col3"><span>$150.00</span></div>
+				</div>
+			</div>
+			<!--页脚，放置补充信息或支持的操作-->
+			<div class="mui-card-footer">
+				<span>
+					下单时间:     2021-4-12 15:32:03
+				</span>
+			</div>
+		</div>
+		
+		
+		<!-- 订单2 -->
+		<div class="mui-card">
+			<!--页眉，放置标题-->
+			<div class="mui-card-header">
+				<div>
+					订单号:1656498465165498498
+				</div>
+				<div>
+					审核中
+				</div>
+			</div>
+			<!--内容区-->
+			<div class="mui-card-content">
+				<div class="content-row1">
+					<div class="col1">
+						<img src="images/main_3.png"/>
+					</div>
+					<div class="col2">
+						<p>款型:无碳联单</p>
+						<p>17.5*9.5cm-二联-50本</p>
+						<p>支付信息:已付定金</p>
+					</div>
+					<div class="col3"><span>$150.00</span></div>
+				</div>
+			</div>
+			<!--页脚，放置补充信息或支持的操作-->
+			<div class="mui-card-footer">
+				<span>
+					下单时间:     2021-4-12 15:32:03
+				</span>
+			</div>
+		</div>
+
+		<div class="foot-nav">
+			<a href="dindan.html">
+				<div class="foot-nav-l">
+					<span class="mui-icon mui-icon-chat" style="text-align: center;" ></span>
+					<span>我的订单</span>
+				</div>
+			</a>
+			<a href="my.html">
+				<div class="foot-nav-r">
+					<span class="mui-icon  mui-icon-pengyouquan dark-font" align='center'></span>
+					<span  class="dark-font">我的</span>
+				</div>
+			</a>
+		</div>
+
+
+
+
+		<script src="js/jquery-1.7.2.min.js"></script>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			$('.li-aa').click(function() {
+				// alert('123');
+				$(this).addClass('select-bg');
+				$(this).siblings().removeClass("select-bg");
+				$(this).siblings().removeClass("default-bg");
+			})
+		</script>
+	</body>
+
+</html>
