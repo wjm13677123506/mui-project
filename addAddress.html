@@ -8,6 +8,8 @@
 			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/mui.picker.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/mui.poppicker.css"/>
 	</head>
 
 	<body>
@@ -29,15 +31,17 @@
 					<label>手机号码</label>
 					<input type="text" class="mui-input-clear" placeholder="手机号">
 				</div>
-				<div class="mui-input-row">
+				<div class="mui-input-row"  id='showCityPicker3'>
 					<label>收获地址</label>
-					<input type="text" class="mui-input-clear" placeholder="省,市,区">
+					<span id='cityResult3'  style="line-height: 40px;"></span>
+					<!-- <input type="text" class="mui-input-clear" placeholder="省,市,区"> -->
 				</div>
 				<div>
 					<textarea id="text" placeholder="详细地址"></textarea>
 				</div>
 			</form>
 		</div>
+		
 		
 		
 		<!-- 保存按钮 -->
@@ -47,8 +51,39 @@
 		
 
 		<script src="js/mui.js"></script>
+		<script src="js/mui.picker.min.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/city.data.js"></script>
+		<script src="js/city.data-3.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+					/**
+					 * 获取对象属性的值
+					 * 主要用于过滤三级联动中，可能出现的最低级的数据不存在的情况，实际开发中需要注意这一点；
+					 * @param {Object} obj 对象
+					 * @param {String} param 属性名
+					 */
+					var _getParam = function(obj, param) {
+						return obj[param] || '';
+					};
+					//三级联示例
+					var cityPicker3 = new $.PopPicker({
+						layer: 3
+					});
+					cityPicker3.setData(cityData3);
+					var showCityPickerButton = doc.getElementById('showCityPicker3');
+					var cityResult3 = doc.getElementById('cityResult3');
+					showCityPickerButton.addEventListener('tap', function(event) {
+						cityPicker3.show(function(items) {
+							cityResult3.innerText = _getParam(items[0], 'text') + " " + _getParam(items[1], 'text') + " " + _getParam(items[2], 'text');
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+				});
+			})(mui, document);
 		</script>
 	</body>
 

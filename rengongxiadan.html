@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<!-- 头部 -->
+		<header class="mui-bar mui-bar-nav home-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left " href="main.html"></a>
+			<h1 class="mui-title">人工下单</h1>
+		</header>
+		<div class="mui-content">
+			<h5  style="color: red; font-weight: bold; padding: 10px 0 0 10px;">订单信息填写：</h5>
+			<form class="mui-input-group" >
+				<div class="mui-input-row" id='dindanTypePicker'>
+					<label>订单类型:</label>
+					<span class="font-center" id='dindanTypeResult'></span>
+				</div>
+				<div class="mui-input-row">
+					<label>印刷数量:</label>
+					<input type="text" class="mui-input-clear" >
+				</div>
+				<div class="mui-input-row">
+					<label>印刷工艺:</label>
+					<input type="text" class="mui-input-clear" >
+				</div>
+				<div class="mui-input-row">
+					<label>成本尺寸:</label>
+					<input type="text" class="mui-input-clear" >
+				</div>
+				<div class="mui-input-row">
+					<label>纸张材料:</label>
+					<input type="text" class="mui-input-clear" >
+				</div>
+				<div class="mui-input-row">
+					<label>装订工艺:</label>
+					<input type="text" class="mui-input-clear">
+				</div>
+			</form>
+			<h5  style="color: red; font-weight: bold; padding: 10px 0 0 10px;">基本信息填写：</h5>
+			<form class="mui-input-group" >
+				<div class="mui-input-row">
+					<label>联系人:</label>
+					<input type="text" class="mui-input-clear" >
+				</div>
+				<div class="mui-input-row">
+					<label>联系电话:</label>
+					<input type="text" class="mui-input-clear" >
+				</div>
+				<div class="mui-input-row">
+					<label>收货地址:</label>
+					<input type="text" class="mui-input-clear" >
+				</div>
+				<div class="mui-input-row">
+					<label>电子邮箱:</label>
+					<input type="text" class="mui-input-clear" >
+				</div>
+				<div class="mui-input-row" id='sexPicker'>
+					<label>性别:</label>
+					<span class="font-center" id='sexResult'></span>
+				</div>
+				<div class="mui-input-row" id='regTypePicker'>
+					<label>注册类型:</label>
+					<span class="font-center" id='regTypeResult'></span>
+				</div>
+				<div class="mui-input-row" id='kaipiaoPicker'>
+					<label>开票类型:</label>
+					<span class="font-center" id='kaipiaoResult'></span>
+				</div>
+				<div class="mui-input-row" id='sendTypePicker'>
+					<label>送货类型:</label>
+					<span class="font-center" id='sendTypeResult'></span>
+				</div>
+				<div>
+					<textarea id="text" placeholder="备注" ></textarea>
+				</div>
+			</form>
+			<button class="public-g-btn">提交</button>
+		</div>
+		
+		
+		<script src="js/mui.js"></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script type="text/javascript">
+			(function($, doc) {
+				$.init();
+				$.ready(function() {
+					//订单类型选择器
+					var dindanTypePicker = new $.PopPicker();
+					dindanTypePicker.setData([{
+						value: 'wutan',
+						text: '无碳联单'
+					}, {
+						value: 'others',
+						text: '其他'
+					}]);
+					var dindanTypePickerButton = doc.getElementById('dindanTypePicker');
+					var dindanTypeResult = doc.getElementById('dindanTypeResult');
+					dindanTypePickerButton.addEventListener('tap', function(event) {
+						dindanTypePicker.show(function(items) {
+							// userResult.innerText = JSON.stringify(items[0]);
+							dindanTypeResult.innerText =items[0].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					//性别选择器
+					var sexPicker = new $.PopPicker();
+					sexPicker.setData([{
+						value: 'man',
+						text: '男士'
+					}, {
+						value: 'women',
+						text: '女士'
+					}]);
+					var sexPickerButton = doc.getElementById('sexPicker');
+					var sexResult = doc.getElementById('sexResult');
+					sexPickerButton.addEventListener('tap', function(event) {
+						sexPicker.show(function(items) {
+							// userResult.innerText = JSON.stringify(items[0]);
+							sexResult.innerText =items[0].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					//注册类型选择器
+					var regTypePicker = new $.PopPicker();
+					regTypePicker.setData([{
+						value: 'company',
+						text: '公司'
+					}, {
+						value: 'personal',
+						text: '个人'
+					}]);
+					var regTypePickerButton = doc.getElementById('regTypePicker');
+					var regTypeResult = doc.getElementById('regTypeResult');
+					regTypePickerButton.addEventListener('tap', function(event) {
+						regTypePicker.show(function(items) {
+							// userResult.innerText = JSON.stringify(items[0]);
+							regTypeResult.innerText =items[0].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					//开票类型选择器
+					var kpPicker = new $.PopPicker();
+					kpPicker.setData([{
+						value: 'shouju',
+						text: '收据票'
+					}, {
+						value: 'putong',
+						text: '普通票'
+					}, {
+						value: 'zengzhi',
+						text: '增值票'
+					}]);
+					var kaipiaoPickerButton = doc.getElementById('kaipiaoPicker');
+					var kaipiaoResult = doc.getElementById('kaipiaoResult');
+					kaipiaoPickerButton.addEventListener('tap', function(event) {
+						kpPicker.show(function(items) {
+							// userResult.innerText = JSON.stringify(items[0]);
+							kaipiaoResult.innerText =items[0].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					//-----------------------------------------
+					//送货类型选择器
+					var sendTypePicker = new $.PopPicker();
+					sendTypePicker.setData([{
+						value: 'smtihuo',
+						text: '上门提货'
+					}, {
+						value: 'songhuosm',
+						text: '送货上门'
+					}, {
+						value: 'daifakd',
+						text: '代发快递'
+					}, {
+						value: 'daifawl',
+						text: '代发物流'
+					}]);
+					var sendTypePickerButton = doc.getElementById('sendTypePicker');
+					var sendTypeResult = doc.getElementById('sendTypeResult');
+					sendTypePickerButton.addEventListener('tap', function(event) {
+						sendTypePicker.show(function(items) {
+							// userResult.innerText = JSON.stringify(items[0]);
+							sendTypeResult.innerText =items[0].text;
+							//返回 false 可以阻止选择框的关闭
+							//return false;
+						});
+					}, false);
+					
+				});
+			})(mui, document);
+			
+		</script>
+	</body>
+
+</html>

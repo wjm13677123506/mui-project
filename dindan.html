@@ -21,7 +21,7 @@
 		
 		<div class="dindan-tab">
 			<ul>
-				<li class="li-aa default-bg">全部订单</li>
+				<li class="li-aa default-bg"><a>全部订单</a></li>
 				<li class="li-aa">待付款</li>
 				<li class="li-aa">待审核</li>
 				<li class="li-aa">生产中</li>
@@ -31,11 +31,12 @@
 		</div>
 
 		<!-- 订单1 -->
+		
 		<div class="mui-card">
 			<!--页眉，放置标题-->
 			<div class="mui-card-header">
-				<div>
-					订单号:1656498465165498498
+				<div >
+					<a class="clear-a-blue">订单号:1656498465165498498</a>
 				</div>
 				<div>
 					审核中
@@ -51,15 +52,19 @@
 						<p>款型:无碳联单</p>
 						<p>17.5*9.5cm-二联-50本</p>
 						<p>支付信息:已付定金</p>
+						<p>支付信息:已付定金</p>
+						<p>支付信息:已付定金</p>
 					</div>
 					<div class="col3"><span>$150.00</span></div>
 				</div>
 			</div>
 			<!--页脚，放置补充信息或支持的操作-->
-			<div class="mui-card-footer">
-				<span>
+			<div class="mui-card-footer" style="display: flex; justify-content: flex-end;">
+			<!-- 	<span>
 					下单时间:     2021-4-12 15:32:03
-				</span>
+				</span> -->
+				<button class="clear-dindan" style="margin: 0 10px;">取消订单</button>
+				<button class="go-zhifu">去支付</button>
 			</div>
 		</div>
 		
@@ -98,6 +103,12 @@
 		</div>
 
 		<div class="foot-nav">
+			<a href="index.html">
+				<div class="foot-nav-m"> 
+					<span class="mui-icon mui-icon-home dark-font " style="text-align: center;" ></span>
+					<span class="dark-font">首页</span>
+				</div>
+			</a>
 			<a href="dindan.html">
 				<div class="foot-nav-l">
 					<span class="mui-icon mui-icon-chat" style="text-align: center;" ></span>
@@ -106,7 +117,7 @@
 			</a>
 			<a href="my.html">
 				<div class="foot-nav-r">
-					<span class="mui-icon  mui-icon-pengyouquan dark-font" align='center'></span>
+					<span class="mui-icon  mui-icon-person-filled dark-font" align='center'></span>
 					<span  class="dark-font">我的</span>
 				</div>
 			</a>
@@ -114,8 +125,8 @@
 
 
 
-
-		<script src="js/jquery-1.7.2.min.js"></script>
+		
+		<script src="js/jquery.min.js"></script>
 		<script src="js/mui.js"></script>
 		<script type="text/javascript">
 			mui.init()
@@ -125,6 +136,15 @@
 				$(this).siblings().removeClass("select-bg");
 				$(this).siblings().removeClass("default-bg");
 			})
+			
+			$('.clear-dindan').click(function(){
+				mui.confirm('确定取消订单?')
+			})
+			
+			$('.go-zhifu').click(function(){
+				
+			})
+			
 		</script>
 	</body>
 

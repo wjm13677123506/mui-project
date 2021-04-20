@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport"
+			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/public.css" />
+	</head>
+
+	<body>
+		<!-- 头部 -->
+		<header class="mui-bar mui-bar-nav home-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left " href="main.html"></a>
+			<h1 class="mui-title">无碳联单</h1>
+		</header>
+		<div class="mui-content " style=" background-color: white; margin-top: 10px;">
+			<div class="mui-content-padded ">
+				<h5 class="h5-style">尺寸:</h5>
+				<div class="btn-div">
+					<button class="aa default-bcolor">17.5*9.5cm</button>
+					<button class="aa">12.5*17.5cm</button>
+					<button class="aa">19*17.5cm</button>
+					<button class="aa">21*28.5cm</button>
+					<button class="aa">21x14.3cm</button>
+					<button class="aa">19x10.5cm</button>
+					<button class="aa">12.5x21cm</button>
+					<button class="aa">19x21cm</button>
+					<button class="aa">13x19cm</button>
+					<button class="aa">26x19cm</button>
+				</div>
+				<h5 class="h5-style">联数:</h5>
+				<div class="btn-div">
+					<button class="aa default-bcolor">四联</button>
+					<button class="aa">三联</button>
+					<button class="aa">二联</button>
+
+				</div>
+				<h5 class="h5-style">数量:</h5>
+				<div class="btn-div">
+					<button class="aa default-bcolor">1000本以上</button>
+					<button class="aa">100-1000本</button>
+					<button class="aa">100本一下</button>
+					<input type="text" style="width: 100px; height: 30px;" />
+					<span style="line-height: 30px; font-size: 14px; padding-left: 5px;"> 本</span>
+				</div>
+				<h5 class="h5-style">工艺:</h5>
+				<div class="btn-div">
+					<button class="default-bcolor">印反面</button>
+					<button>套色</button>
+					<button>打针孔</button>
+					<button>垫纸板</button>
+				</div>
+				<div class="xiadan-div">
+					<button class="baojia-btn">立即报价</button>
+					<button class='liji-btn'>立即下单</button>
+					<!-- <button class="zizhu-btn">自主下单</button> -->
+				</div>
+
+				<div class='baojia-result'>
+					<p>
+						<span>规格:</span>
+						<span>击发生到房间里喀什觉得分厘卡时间</span>
+					</p>
+					<p>
+						<span>总价:</span>
+						<span>24654</span>元
+					</p>
+				</div>
+
+			</div>
+			
+			
+
+		</div>
+	
+		<script src="js/mui.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			$('.aa').click(function() {
+				$(this).addClass('dagou-bg');
+				$(this).siblings().removeClass("dagou-bg");
+				$(this).siblings().removeClass("default-bcolor");
+			})
+			
+			
+		</script>
+	</body>
+
+</html>

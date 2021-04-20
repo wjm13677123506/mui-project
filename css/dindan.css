@@ -61,14 +61,13 @@
 
 .content-row1 .col2 {
 	width: 150px;
-	height: 105px;
+	height: auto;
 	/* border: 1px solid; */
 	word-wrap: break-word;
-
-
-
-
+	/* overflow: auto; */
 }
+
+
 
 .content-row1 .col2 p {
 	margin-bottom: 10px;
@@ -87,4 +86,18 @@
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+}
+
+.clear-dindan{
+	background-color: #F2F2F2;
+	color: #999999;
+	border-radius: 16px;
+	padding: 5px 10px;
+}
+
+.go-zhifu{
+	background-color: #FD9A16;
+	color: white;
+	border-radius: 16px;
+	padding: 5px  15px;
 }

@@ -13,6 +13,15 @@
 	color: white;
 }
 
+.dindan-tab a{
+	color: #000000;
+}
+
+.clear-a-blue{
+	color: #000000;
+}
+
+
 /*通用绿色按钮*/
 .public-g-btn {
 	background: #55D075;
@@ -146,10 +155,9 @@
 	/* border: 1px solid; */
 	position: fixed;
 	top: 0;
-	z-index: 9999;
+	z-index: 500;
 	background-color: white;
 	display: none;
-	
 	
 }
 
@@ -175,4 +183,117 @@
 .foot-nav div span:nth-of-type(2){
 	font-size: 11px;
 	
+}
+
+
+/* 首页 */
+
+.mui-slider{
+	margin-top: 15px;
+}
+
+/* 轮播图大小 */
+.mui-slider img{
+	width: 100%;
+	height: 200px;
+	border: 0;
+}
+
+.menu{
+	display: flex;
+	justify-content: space-around;
+	background-color: white;
+	flex-wrap: wrap;
+}
+
+.menu-div{
+	text-align: center;
+	padding: 12px 0;
+}
+
+.menu-div p{
+	margin-top: 5px;
+}
+
+.menu-div img{
+	width: 72px;
+	height: 72px;
+}
+
+.menu-div span{
+	font-size: 30px;
+	/* color: black; */
+}
+
+/* 无碳联单 */
+.btn-div{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.btn-div button{
+	margin: 0 10px 10px 0;
+}
+
+/* .btn-div button:focus{
+	background-color: #00aaff;
+	color: white;
+} */
+.h5-style{
+	color: #000000;
+	font-size: 16px;
+	margin-bottom: 7px;
+}
+
+.xiadan-div{
+	display: flex;
+	justify-content: space-around;
+	margin-top: 10px;
+}
+
+.xiadan-div .baojia-btn{
+	background-color: #FD9A16;
+	color: white;
+}
+
+.xiadan-div .liji-btn{
+	background-color: limegreen;
+	color: white;
+}
+
+.xiadan-div .zizhu-btn{
+	background-color: limegreen;
+	color: white;
+}
+
+.baojia-result{
+	margin-top: 10px;
+}
+
+.baojia-result span:first-of-type{
+	color: red;
+	font-weight: bold;
+	display: block;
+	
+}
+
+.baojia-result span:nth-of-type(2){
+	display:inline-block;
+}
+
+.default-bcolor{
+	background-color: #00aaff;
+	color: white;
+}
+
+.dagou-bg{
+	background-color: #00AAFF;
+	color: white;
+}
+
+
+/* 人工下单 */
+/* 文字垂直水平居中 */
+.font-center{
+	line-height: 2.5rem;
 }
